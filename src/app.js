@@ -2,10 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-//CID
-//291281965874-gd0tr6ktm694ef95g0gj7t6sfd7rjjb1.apps.googleusercontent.com
-//CSecret
-//apG5k992dGfrphCElPGe4kHw
 
 const app = express();
 
