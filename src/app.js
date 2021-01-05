@@ -10,7 +10,7 @@ app.use(express.json());
 
 const router = express.Router();
 
-router.route('/home').get((req, res) => {
+router.route('/').get((req, res) => {
   res.send('Hi There!');
 });
 
