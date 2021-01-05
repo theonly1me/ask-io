@@ -3,7 +3,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+if (!process.env.NODE_ENV) app.use(morgan('dev'));
 
 //JSON body parser middleware
 app.use(express.json());
