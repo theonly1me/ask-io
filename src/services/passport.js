@@ -17,6 +17,10 @@ const strategy = new GoogleStrategy(
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback',
+    proxy: true, //for below!
+    //google strategy will append http in production which will cause issue with google oauth2,
+    //but there is a 2nd factor to this which is that heroku apps run on vms hosted somewhere on AWS.
+    //So either pas an additional google strat option or spell out entire url
   },
   async (accessToken, refreshToken, userProfile, done) => {
     try {
