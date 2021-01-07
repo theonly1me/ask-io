@@ -1,16 +1,34 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('../config/keys');
+const User = require('../models/userModel');
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  const user = await User.findById(id);
+  done(null, user);
+});
 
 //Google Strategy Configuration for oauth 2
 const strategy = new GoogleStrategy(
   {
-    clientID: keys.googleClientID,
-    clientSecret: keys.googleClientSecret,
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback',
   },
-  (accessToken, refreshToken, userProfile, done) => {
-    console.log(userProfile);
+  async (accessToken, refreshToken, userProfile, done) => {
+    try {
+      let existingUser = await User.findOne({ googleId: userProfile.Id });
+      if (!existingUser) {
+        User.create({ googleId: userProfile.id }).then(newUser =>
+          done(null, newUser)
+        );
+      } else done(null, existingUser);
+    } catch (err) {
+      console.error(err);
+    }
   }
 );
 passport.use(strategy);
