@@ -26,10 +26,10 @@ const strategy = new GoogleStrategy(
     try {
       let existingUser = await User.findOne({ googleId: userProfile.Id });
       if (!existingUser) {
-        User.create({ googleId: userProfile.id }).then(newUser =>
-          done(null, newUser)
-        );
-      } else done(null, existingUser);
+        const newUser = await User.create({ googleId: userProfile.id });
+        return done(null, newUser);
+      }
+      done(null, existingUser);
     } catch (err) {
       console.error(err);
     }
