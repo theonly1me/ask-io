@@ -9,6 +9,10 @@ router.route('/auth/google').get(
   })
 );
 
-router.route('/auth/google/callback').get(passport.authenticate('google'));
+router
+  .route('/auth/google/callback')
+  .get(passport.authenticate('google'), (req, res) => {
+    res.redirect('/');
+  });
 
 module.exports = router;
