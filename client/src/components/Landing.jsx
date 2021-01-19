@@ -28,7 +28,7 @@ const Landing = ({ user, setHeaderTab }) => {
               Ask the right questions, leave the rest to us.
             </Typography>
 
-            {user ? (
+            {user?.data ? (
               <>
                 <Typography variant="h6">
                   Welcome{' '}
