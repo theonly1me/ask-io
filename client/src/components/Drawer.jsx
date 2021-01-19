@@ -53,7 +53,7 @@ const DrawerComponent = ({
                   disableRipple
                   component={MUILink}
                   href="/auth/google"
-                  style={{ color: '#fff' }}
+                  style={{ color: 'inherit' }}
                 >
                   <LoginIcon fontSize="large" />
                 </IconButton>
