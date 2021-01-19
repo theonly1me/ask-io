@@ -161,7 +161,6 @@ const Header = ({ setDarkMode, darkMode, user, logout, value, setValue }) => {
                 // className={classes.darkModeButton}
                 style={{
                   marginLeft: 15,
-                  color: '#fff',
                   [theme.breakpoints.down('sm')]: {
                     marginLeft: 0,
                   },

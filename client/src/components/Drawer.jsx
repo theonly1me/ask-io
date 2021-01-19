@@ -114,7 +114,7 @@ const DrawerComponent = ({
         style={{ marginLeft: 'auto', zIndex: 1 }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
-        <MenuIcon />
+        <MenuIcon style={{ color: '#fff' }} />
       </IconButton>
     </>
   );
