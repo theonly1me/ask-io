@@ -56,7 +56,14 @@ const Header = ({ setDarkMode, darkMode, user, logout, value, setValue }) => {
       <AppBar color="primary">
         <Toolbar variant="regular">
           <Typography
-            className={classes.title}
+            // className={classes.title}
+            style={{
+              fontFamily: 'Sofia, cursive',
+              fontSize: 36,
+              marginRight: 20,
+              textDecoration: 'none',
+              color: '#ecf0f1',
+            }}
             component={Link}
             to="/"
             onClick={() => setValue(0)}
@@ -150,7 +157,13 @@ const Header = ({ setDarkMode, darkMode, user, logout, value, setValue }) => {
               )}
               <IconButton
                 onClick={() => setDarkMode(!darkMode)}
-                className={classes.darkModeButton}
+                // className={classes.darkModeButton}
+                style={{
+                  marginLeft: 15,
+                  [theme.breakpoints.down('sm')]: {
+                    marginLeft: 0,
+                  },
+                }}
                 edge="end"
               >
                 {themeIcon()}
