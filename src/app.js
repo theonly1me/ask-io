@@ -29,4 +29,15 @@ app.use(express.json());
 app.use('/', authRouter);
 app.use('/api/v1', appRouter);
 
+if (process.env.NODE_ENV === 'production') {
+  //Express will serve the production assets
+  app.use(express.static('client/build'));
+
+  //express will serve index.html if it doesn't know the route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 module.exports = app;
