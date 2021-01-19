@@ -23,10 +23,19 @@ const strategy = new GoogleStrategy(
     //So either pas an additional google strat option or spell out entire url
   },
   async (accessToken, refreshToken, userProfile, done) => {
+    const {
+      name: { givenName },
+      photos,
+    } = userProfile;
+
     try {
-      let existingUser = await User.findOne({ googleId: userProfile.Id });
+      let existingUser = await User.findOne({ googleId: userProfile.id });
       if (!existingUser) {
-        const newUser = await User.create({ googleId: userProfile.id });
+        const newUser = await User.create({
+          googleId: userProfile.id,
+          name: givenName,
+          photo: photos[0].value,
+        });
         return done(null, newUser);
       }
       done(null, existingUser);

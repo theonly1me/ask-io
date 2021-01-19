@@ -7,6 +7,16 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+  },
+  credits: {
+    type: Number,
+    default: 0,
+  },
+  photo: {
+    type: String,
+  },
 });
 
 const User = mongoose.model('users', userSchema);
