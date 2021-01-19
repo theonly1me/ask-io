@@ -110,7 +110,8 @@ const DrawerComponent = ({
         </List>
       </Drawer>
       <IconButton
-        className={classes.hamburgerMenu}
+        // className={classes.hamburgerMenu}
+        style={{ marginLeft: 'auto', zIndex: 1 }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
         <MenuIcon />

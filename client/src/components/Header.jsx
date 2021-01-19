@@ -105,6 +105,7 @@ const Header = ({ setDarkMode, darkMode, user, logout, value, setValue }) => {
                 <Tab
                   icon={<HomeIcon fontSize="large" />}
                   // label="Home"
+                  style={{ marginLeft: 20 }}
                   component={Link}
                   to="/"
                   disableRipple
