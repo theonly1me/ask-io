@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 //Material UI
 import {
@@ -27,10 +27,10 @@ import DashboardIcon from '@material-ui/icons/ListAltRounded';
 import NewIcon from '@material-ui/icons/AddCircleOutlineRounded';
 import LogoutIcon from '@material-ui/icons/KeyboardBackspace';
 
-import useStyles from '../utils/styles';
+import useStyles from '../../utils/styles';
 
 import DrawerComponent from './Drawer';
-import StripePayments from './StripePayments';
+import StripePayments from '../StripePayments';
 
 const Header = ({ setDarkMode, darkMode, user, logout, value, setValue }) => {
   const classes = useStyles();

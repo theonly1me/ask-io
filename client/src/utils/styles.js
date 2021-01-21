@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme =>
     paperContainer: {
       height: '100vh',
       width: '100vw',
-      borderRadius: 0,
     },
     bodyContainer: {
       paddingTop: '100px',
@@ -43,6 +42,27 @@ const useStyles = makeStyles(theme =>
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       overflowX: 'hidden',
+    },
+    mainFeaturedBody: {
+      position: 'relative',
+      color: theme.palette.common.white,
+      minHeight: '150vh',
+      overflowX: 'hidden',
+      [theme.breakpoints.down('md')]: {
+        minHeight: '100vh',
+      },
+    },
+    mainFeaturedHeader: {
+      position: 'relative',
+      // backgroundColor: theme.palette.grey[800],
+      // color: theme.palette.common.white,
+      backgroundImage: 'url("/assets/survey-back.jpg")',
+      height: '30vh',
+      width: '100vw',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      textAlign: 'center',
+      backgroundRepeat: 'no-repeat',
     },
     overlay: {
       position: 'absolute',

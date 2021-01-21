@@ -9,11 +9,11 @@ const Landing = ({ user, setHeaderTab }) => {
   console.log(user);
 
   return (
-    <Paper className={classes.mainFeaturedPost}>
+    <Paper className={classes.mainFeaturedPost} style={{ borderRadius: 0 }}>
       {<img style={{ display: 'none' }} alt="cover" />}
       <div className={classes.overlay} />
       <Grid container>
-        <Grid item xs={6} md={6}>
+        <Grid item>
           <Paper className={classes.mainFeaturedPostContent}>
             <Typography
               component="h1"

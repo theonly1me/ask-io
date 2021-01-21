@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 import {
   Drawer,
@@ -20,7 +20,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import LogoutIcon from '@material-ui/icons/KeyboardBackspace';
 import CreditIcon from '@material-ui/icons/AttachMoney';
 
-import StripePayments from './StripePayments';
+import StripePayments from '../StripePayments';
 
 const DrawerComponent = ({
   themeIcon,

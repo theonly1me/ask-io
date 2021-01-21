@@ -15,11 +15,11 @@ import {
 import useStyles from '../utils/styles';
 
 //App Components
-import Header from './Header';
+import Header from './Navigation/Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
-import SurveyNew from './SurveyNew';
-import Footer from './Footer';
+import SurveyNew from './surveys/SurveyNew';
+import Footer from './Navigation/Footer';
 
 const App = props => {
   const classes = useStyles();
@@ -62,7 +62,7 @@ const App = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper className={classes.paperContainer}>
+      <Paper className={classes.paperContainer} style={{ borderRadius: 0 }}>
         <BrowserRouter>
           <Header
             setDarkMode={setDarkMode}

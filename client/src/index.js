@@ -6,9 +6,15 @@ import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 ReactDOM.render(
-  <Provider store={createStore(reducers, applyMiddleware(reduxThunk))}>
+  <Provider
+    store={createStore(
+      reducers,
+      composeWithDevTools(applyMiddleware(reduxThunk))
+    )}
+  >
     <App />
   </Provider>,
   document.getElementById('root')
