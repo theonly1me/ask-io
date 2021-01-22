@@ -38,6 +38,7 @@ const SurveyForm = ({ handleSubmit }) => {
 const validate = values => {
   const errors = {};
   if (!values.title) errors.title = 'Title is required.';
+  console.log(errors);
   return errors;
 };
 

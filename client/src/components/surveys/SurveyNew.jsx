@@ -6,7 +6,11 @@ import useStyles from '../../utils/styles';
 const SurveyNew = () => {
   const classes = useStyles();
   return (
-    <Paper className={classes.mainFeaturedBody} elevation={3}>
+    <Paper
+      className={classes.mainFeaturedBody}
+      elevation={3}
+      style={{ borderRadius: 0 }}
+    >
       <Paper className={classes.mainFeaturedHeader} style={{ borderRadius: 0 }}>
         <Paper style={{ position: 'relative', top: '50%', opacity: 0.9 }}>
           <Typography component="h1" variant="h4" color="inherit" gutterBottom>

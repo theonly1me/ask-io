@@ -27,16 +27,16 @@ export default function Footer(props) {
     <footer className={classes.footer}>
       <Container maxWidth="lg">
         <Typography variant="subtitle1" align="center" gutterBottom>
-          <span className={classes.colorText}> Made with ☕</span>
+          <span className={classes.colorText}> Made with lots of ☕</span>
         </Typography>
         <Typography align="center">
           <IconButton
-            style={{ color: 'inherit' }}
+            style={{ color: 'e4405f' }}
             component={Link}
             href="https://www.instagram.com/pulavarthi.preetham/"
             target="_blank"
           >
-            <InstagramIcon />
+            <InstagramIcon style={{ color: 'e4405f' }} />
           </IconButton>
           <IconButton
             style={{ color: 'inherit' }}
@@ -47,20 +47,20 @@ export default function Footer(props) {
             <GitHubIcon />
           </IconButton>
           <IconButton
-            style={{ color: 'inherit' }}
+            style={{ color: '55acee' }}
             component={Link}
             href="https://www.twitter.com/AtchyutPreetham"
             target="_blank"
           >
-            <TwitterIcon />
+            <TwitterIcon style={{ color: '#55acee' }} />
           </IconButton>
           <IconButton
-            style={{ color: 'inherit' }}
+            style={{ color: '#0077B5' }}
             component={Link}
             href="https://www.linkedin.com/in/atchyutpulavarthi/"
             target="_blank"
           >
-            <LinkedInIcon />
+            <LinkedInIcon style={{ color: '#0077B5' }} />
           </IconButton>
         </Typography>
         <Copyright />
