@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SurveyForm from './SurveyForm';
-import { Paper, Grid, Typography } from '@material-ui/core';
+import SurveyReview from './SurveyReview';
+import { reduxForm } from 'redux-form';
+import { Paper, Grid, Typography, Fade } from '@material-ui/core';
 import useStyles from '../../utils/styles';
 
-const SurveyNew = () => {
+const SurveyNew = ({ setHeaderTab }) => {
   const classes = useStyles();
+  const [review, setReview] = useState(false);
   return (
     <Paper
       className={classes.mainFeaturedBody}
@@ -21,7 +24,14 @@ const SurveyNew = () => {
       <Grid container>
         <Grid item xs={1} md={2} />
         <Grid item xs={10} md={8}>
-          <SurveyForm />
+          {review ? (
+            <SurveyReview
+              onBack={() => setReview(false)}
+              setHeaderTab={setHeaderTab}
+            />
+          ) : (
+            <SurveyForm onNext={() => setReview(true)} />
+          )}
         </Grid>
         <Grid item xs={1} md={2} />
       </Grid>
@@ -29,4 +39,6 @@ const SurveyNew = () => {
   );
 };
 
-export default SurveyNew;
+export default reduxForm({
+  form: 'surveyForm',
+})(SurveyNew);

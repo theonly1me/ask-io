@@ -75,7 +75,9 @@ const App = props => {
             <Landing setHeaderTab={setTabValue} />
           </Route>
           <Route path="/surveys" exact component={Dashboard} />
-          <Route path="/surveys/new" component={SurveyNew} />
+          <Route path="/surveys/new">
+            <SurveyNew setHeaderTab={setTabValue} />
+          </Route>
           <Footer />
         </BrowserRouter>
       </Paper>

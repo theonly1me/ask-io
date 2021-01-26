@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Typography, Paper } from '@material-ui/core';
+import { Grid, Typography, Paper, Grow } from '@material-ui/core';
 import useStyles from '../utils/styles';
 import { connect } from 'react-redux';
 
 const Landing = ({ user, setHeaderTab }) => {
   const classes = useStyles();
-  console.log(user);
-
+  const [quote, setQuote] = useState(1);
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      const quoteID = Math.floor(Math.random() * 3) + 1;
+      quoteID !== quote && setQuote(quoteID);
+    }, 4000);
+    return () => {
+      clearTimeout(timerID);
+    };
+  }, []);
   return (
     <Paper className={classes.mainFeaturedPost} style={{ borderRadius: 0 }}>
       {<img style={{ display: 'none' }} alt="cover" />}
@@ -24,9 +32,32 @@ const Landing = ({ user, setHeaderTab }) => {
               A Brilliant way to{' '}
               <span className={classes.colorText}>Survey.</span>
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph>
-              Ask the right questions, leave the rest to us.
-            </Typography>
+            {quote === 1 && (
+              <Grow in={quote === 1} timeout={2000}>
+                <Typography variant="h6" color="inherit" paragraph>
+                  Ask the right questions,{' '}
+                  <span className={classes.colorText}>
+                    leave the rest to us.
+                  </span>
+                </Typography>
+              </Grow>
+            )}
+            {quote === 2 && (
+              <Grow in={quote === 2} timeout={2000}>
+                <Typography variant="h6" color="inherit" paragraph>
+                  Bridge the gap between you and{' '}
+                  <span className={classes.colorText}>the consumer.</span>
+                </Typography>
+              </Grow>
+            )}
+            {quote === 3 && (
+              <Grow in={quote === 3} timeout={2000}>
+                <Typography variant="h6" color="inherit" paragraph>
+                  We're here to fastrack your{' '}
+                  <span className={classes.colorText}>feeback loop.</span>
+                </Typography>
+              </Grow>
+            )}
 
             {user?.data ? (
               <>
