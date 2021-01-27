@@ -12,7 +12,7 @@ const SurveyReview = props => {
   } = props;
   const history = useHistory();
   const handleSubmit = () => {
-    props.submitSurvey();
+    props.submitSurvey(values);
     props.setHeaderTab(0);
     history.push('/');
   };

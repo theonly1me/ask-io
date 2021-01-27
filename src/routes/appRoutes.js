@@ -85,7 +85,7 @@ router.post(
     const mailer = new Mailer(survey, surveyTemplate(survey));
     await mailer.send();
     await survey.save();
-    req.user.credits -= 1;
+    req.user.credits -= recipients.split(',').length;
     const user = await req.user.save();
   })
 );

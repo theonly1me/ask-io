@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -10,6 +10,7 @@ import useStyles from '../utils/styles';
 
 const StripePayments = ({ handleToken, user }) => {
   const classes = useStyles();
+  useEffect(() => {}, [user]);
   return (
     <StripeCheckout
       name="ASK.IO"

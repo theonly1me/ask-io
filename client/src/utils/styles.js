@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme =>
       position: 'relative',
       backgroundColor: theme.palette.grey[800],
       color: theme.palette.common.white,
-      backgroundImage: ` ${
+      backgroundImage: `${
         'url(https://source.unsplash.com/collection/81967371)' ||
         'url(/assets/hero_back.jpg)'
       }`,
