@@ -54,7 +54,7 @@ const Landing = ({ user, setHeaderTab }) => {
               <Grow in={quote === 3} timeout={2000}>
                 <Typography variant="h6" color="inherit" paragraph>
                   We're here to fastrack your{' '}
-                  <span className={classes.colorText}>feeback loop.</span>
+                  <span className={classes.colorText}>feedback loop.</span>
                 </Typography>
               </Grow>
             )}
