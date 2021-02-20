@@ -1,3 +1,6 @@
+const _ = require('lodash');
+const { Path } = require('path-parser');
+const { URL } = require('url');
 const express = require('express');
 const stripe = require('stripe')(process.env.SECRET_KEY);
 const Survey = require('../models/surveyModel');
@@ -66,6 +69,22 @@ router.post(
   })
 );
 
+router.get('/surveys/:surveyId/:choice', (req, res) => {
+  res.send('Thanks for your vote!');
+});
+
+router.get(
+  '/surveys',
+  validateUser,
+  catchAsync(async (req, res) => {
+    const surveys = await Survey.find({ _user: req.user.id }).select({
+      recpients: false,
+    });
+    console.log(surveys);
+    res.send(surveys);
+  })
+);
+
 router.post(
   '/surveys',
   validateUser,
@@ -89,5 +108,36 @@ router.post(
     const user = await req.user.save();
   })
 );
+
+router.post('/surveys/webhooks', (req, res) => {
+  const p = new Path(`/api/surveys/:surveyId/:choice`);
+
+  _.chain(req.body)
+    .map(({ email, url }) => {
+      const match = p.test(new URL(url).pathname);
+      if (match) {
+        return { email, surveyId: match.surveyId, choice: match.choice };
+      }
+    })
+    .compact()
+    .uniqBy('email', 'surveyId')
+    .each(({ surveyId, email, choice }) => {
+      Survey.updateOne(
+        {
+          _id: surveyId,
+          recipients: {
+            $elemMatch: { email: email, responded: false },
+          },
+        },
+        {
+          $inc: { [choice]: 1 },
+          $set: { 'recipients.$.responded': true },
+        }
+      ).exec();
+    })
+    .value();
+
+  res.send({});
+});
 
 module.exports = router;

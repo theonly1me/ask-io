@@ -24,6 +24,7 @@ const SurveyReview = props => {
         top: '10%',
         padding: '20px',
         textAlign: 'center',
+        marginBottom: '200px',
       }}
     >
       <form>

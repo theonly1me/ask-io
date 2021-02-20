@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_USER, LOGOUT } from '../actions/types';
+import { FETCH_USER, LOGOUT, FETCH_SURVEYS } from '../actions/types';
 import { reducer as formReducer } from 'redux-form';
 
 const authReducer = (state = null, action) => {
@@ -13,7 +13,17 @@ const authReducer = (state = null, action) => {
   }
 };
 
+const surveysReducer = (state = [], action) => {
+  switch (action.type) {
+    case FETCH_SURVEYS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   auth: authReducer,
   form: formReducer,
+  surveys: surveysReducer,
 });

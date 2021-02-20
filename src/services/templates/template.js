@@ -90,8 +90,8 @@ module.exports = survey => {
                                                                                           <h3>Your opinion is important to us!</h3>
                                                                                           <p>${survey.body}</p>
                                                                                               <div>
-                                                                                              <a href="${domain}/api/v1/surveys/thanks">Yes</a>
-                                                                                              <a href="${domain}/api/v1/surveys/thanks">No</a>
+                                                                                              <a href="${domain}/api/v1/surveys/${survey.id}/yes">Yes</a>
+                                                                                              <a href="${domain}/api/v1/surveys/${survey.id}/no">No</a>
                                                                                               </div>
                                                                                               </div>
                                                                                       </td>

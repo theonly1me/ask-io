@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SurveyForm from './SurveyForm';
 import SurveyReview from './SurveyReview';
 import { reduxForm } from 'redux-form';
-import { Paper, Grid, Typography, Fade } from '@material-ui/core';
+import { Paper, Grid, Typography } from '@material-ui/core';
 import useStyles from '../../utils/styles';
 
 const SurveyNew = ({ setHeaderTab }) => {
